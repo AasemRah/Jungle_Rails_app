@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    
     @user = User.authenticate_with_credentials(params[:email], params[:password])
 
     if @user
