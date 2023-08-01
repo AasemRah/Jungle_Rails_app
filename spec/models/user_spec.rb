@@ -25,16 +25,10 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Name can't be blank")
     end
 
-    it 'should provide an error message if email not set' do
-      @user = User.new(name: 'Caitlin C.', email: nil, password: "12345hello", password_confirmation: "12345hello")
+    it 'should have a minimun password length' do
+      @user = User.new(name: 'Caitlin C.', email: 'lol@aol.com', password: "We", password_confirmation: "We")
       @user.save
-      expect(@user.errors.full_messages).to include("Email can't be blank")
+      expect(@user.errors.full_messages).to include('Password is too short (minimum is 5 characters)')
     end
-
-    xit 'should provide an error message if email is not unique' do
-      puts "look into how to test this."
-    end
-
   end
-
 end
