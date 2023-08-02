@@ -1,4 +1,4 @@
-describe('home page', () => {
+describe('product details page', () => {
   it('can visit the homepage', () => {
     const username = 'Jungle';
     const password = 'Book';
